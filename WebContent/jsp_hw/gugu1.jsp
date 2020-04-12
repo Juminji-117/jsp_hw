@@ -21,7 +21,7 @@
 			}
 			out.print("</tr>");
 		}
-		out.print("</table>");
+
 	%>
 	</table>
 </body>
