@@ -6,8 +6,8 @@
 <meta http-equiv = "Content-Type" content="text/html; charset=UTF-8">
 <title>gugu1</title>
 <style>
-	table {border-collapse: collapse;  border: 1px solid black; }
-	td {border: 1px solid black; font: 6pt 나눔고딕; padding:3px; }
+	table {border-collapse: collapse;  border: 1px solid #aaa; }
+	td, tr {border: 1px solid #aaa; font-size: 6pt; font-weight: 600; font-family:나눔고딕; padding: 3px; }
 </style>
 </head>
 <body>
