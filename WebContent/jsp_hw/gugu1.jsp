@@ -13,13 +13,13 @@
 <body>
 <table>
 <% 		for (int i=1;i<10; i++) {
-			out.print("<tr>");
+			out.println("<tr>");
 			for (int j=2; j<10; j++) {
 				out.print( "<td>");
 				out.print( j + "x" + i + "=" + j*i);
-				out.print("</td>");
+				out.println("</td>");
 			}
-			out.print("</tr>");
+			out.println("</tr>");
 		}
 
 	%>
