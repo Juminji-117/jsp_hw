@@ -19,7 +19,7 @@ Student student = (Student)session.getAttribute("student");
 
 <div class="container">
 
-<h1>회원가입 성공</h1>
+<h1>학생등록 성공</h1>
 
 <table>
   <tr>

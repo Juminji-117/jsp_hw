@@ -66,7 +66,7 @@ if (request.getMethod().equals("POST")) {
 
 
 <form method="post">
-  <h1>회원가입</h1>
+  <h1>학생 등록</h1>
   <div>
     <label>아이디</label>
     <input type="text" class="text" name="id" value="<%= id %>" />
@@ -93,13 +93,13 @@ if (request.getMethod().equals("POST")) {
     <input type="text" class="text" name="year" value="<%= year %>" />
   </div>
   <button type="submit" class="btn">
-      <i class="fas fa-user-plus"></i> 회원가입
+      <i class="fas fa-user-plus"></i> 학생등록
   </button>
 </form>
 
 <% if (에러메시지 != null) { %>
   <div class="error">
-    회원가입 실패: <%= 에러메시지 %>
+    학생등록 실패: <%= 에러메시지 %>
   </div>
 <% } %>
 </div>
