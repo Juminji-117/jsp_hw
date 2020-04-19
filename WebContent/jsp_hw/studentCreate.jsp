@@ -27,10 +27,10 @@ if (request.getMethod().equals("POST")) {
     else if (b == null || b.length() == 0) 
         에러메시지 = "학년을 입력하세요";
     else {
-        Student student = new Student(id, studentNumber, name, departmentId, year); // 입력된 내용으로 객체 생성
-        session.setAttribute("student", student); // session에 넣기
-        response.sendRedirect("studentCreate_success.jsp"); // 성공페이지로 리다이렉트
-        return; // 그 아래 내용은 실행도 출력도 안됨
+        Student student = new Student(id, studentNumber, name, departmentId, year); 
+        session.setAttribute("student", student); 
+        response.sendRedirect("studentCreate_success.jsp"); 
+        return; 
     }    
 }
 %>
