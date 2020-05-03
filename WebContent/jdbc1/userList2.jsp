@@ -29,7 +29,6 @@ List<User> list = UserDAO2.findByName(srchText);
   <button type="submit">조회</button>
 </form>
   
-  
   <table class="table table-bordered table-condensed">
       <thead>
           <tr>

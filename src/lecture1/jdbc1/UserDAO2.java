@@ -58,6 +58,6 @@ public class UserDAO2 {
             }
             return list;
         }
-	}
+	 }
   }
 }
