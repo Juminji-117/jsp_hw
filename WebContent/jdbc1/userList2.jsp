@@ -4,7 +4,7 @@
 <%
 String srchText = request.getParameter("srchText");
 if (srchText == null) srchText = ""; 
-List<User> list = UserDAO2.findByName(srchText); 
+List<User> list = UserDAO2.findByName(srchText);
 %>
 <!DOCTYPE html>
 <html>
