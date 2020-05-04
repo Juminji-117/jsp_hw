@@ -8,24 +8,27 @@
 <%
 String number = request.getParameter("num");
 int num = (number == null) ? 0 : Integer.parseInt(number); 
-
-if(request.getParameter("multiple") != null){ 
-	       num += 1;
-}
  %>
     <form>
         <input type="text" name="num" value="<%= num %>"  />
         <button type="submit" name="multiple">단</button>
     </form>  
-<table>
-<tr>
-<% 				for (int i=1; i<10; i++) {
+<%
+out.print("<table>");
+out.print("<tr>");
+ 				for (int i=1; i<10; i++) {
 				out.print( "<td>");
-				out.print( num + "x" + i + "=" + num*i);
-				out.print("</td>");
-			}
-%>
-			</tr>
-</table>
+				if(request.getParameter("multiple") != null){ 
+				 out.print( num + "x" + i + "=" + num*i);
+				 out.print("</td>");
+				 }
+				else {
+					out.print ("0" + "x" + i + "=" + "0");
+				 	out.print("</td>");
+				}
+ 				}
+out.print("</tr>");
+out.print("</table>");
+%>    
 </body>
 </html>
