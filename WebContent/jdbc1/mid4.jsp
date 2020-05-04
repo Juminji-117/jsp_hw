@@ -3,6 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+table {border-collapse: collapse; }
+</style>
 </head>
 <body>
 <% 
@@ -11,15 +14,13 @@ String 에러메시지 = null;
 String sex ="";
 if (request.getMethod().equals("POST")) {
     userid = request.getParameter("userid");
+    sex = request.getParameter("sex");
     if (userid == null || userid.length() == 0)
         에러메시지 = "회원등록 실패: 이름을 입력하세요";
     else if (sex== null)
    	에러메시지 = "회원등록 실패: 성별을 입력하세요";
-    else {
-        session.setAttribute("userid", userid);
-        response.sendRedirect(".jsp");
+    else 
         return;
-    }
 }
 %>
 
@@ -29,11 +30,14 @@ if (request.getMethod().equals("POST")) {
   
     <div>
         <label>이름</label>
-        <input type="text" name="name" value="userid" />
+        <input type="text" name="userid"  />
     </div>
     
     <div>
+		<div>
         <label>성별:</label>
+        </div>
+
         <div>
         <input id="r1" type="radio" name="sex" value="male" /> 
         <label for="r1">남자</label>
@@ -48,19 +52,26 @@ if (request.getMethod().equals("POST")) {
   		<div>
         <button type="submit">회원 등록</button>
         </div>
+
+</form>
+
+<% if (에러메시지 != null) { %>
+  <div class="error">
+   <%= 에러메시지 %>
+  </div>
+<% } %>
+
+
 <table>
 <tr> 
 	<td> 이름 </td>
-	<td>  </td>
+	<td> <%= (userid==null) ? "" : userid  %>  </td>
 </tr>
 <tr>
 	<td> 성별</td>
-	<td>  </td>
+	<td> <%= (sex==null) ? "" : sex  %>  </td>
 	</tr>
 </table>
-
-
-</form>
 
 
 </body>
