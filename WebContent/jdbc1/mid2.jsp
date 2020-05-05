@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
   button { padding: 0.4em 2em; margin-top: 10px; }
+  input:nth-child(1) {margin-top: 10px; }
 </style>
 </head>
 <body>

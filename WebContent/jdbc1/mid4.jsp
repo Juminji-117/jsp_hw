@@ -5,6 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
 table {border-collapse: collapse; }
+tr, td {border: 1px solid black; }
+div.s {margin: 10px 5px; }
+table.error {border: 1px solid #ffccbb; background-color:#ffccbb; margin:10px 5px; }
 </style>
 </head>
 <body>
@@ -28,12 +31,12 @@ if (request.getMethod().equals("POST")) {
       <h1>회원 등록</h1>
 
   
-    <div>
+    <div class="s">
         <label>이름</label>
-        <input type="text" name="userid"  />
+        <input type="text" name="userid" value="<%= userid %>" />
     </div>
     
-    <div>
+    <div class="s">
 		<div>
         <label>성별:</label>
         </div>
@@ -49,27 +52,31 @@ if (request.getMethod().equals("POST")) {
     	</div>
     </div>	
     
-  		<div>
+  		<div class="s">
         <button type="submit">회원 등록</button>
         </div>
 
 </form>
 
-<% if (에러메시지 != null) { %>
-  <div class="error">
-   <%= 에러메시지 %>
-  </div>
-<% } %>
 
+<% if (에러메시지 != null) { %>
+<table class="error">
+	<tr>
+		<td>			
+			<%	out.print(에러메시지); %>
+		</td>
+	</tr>
+</table>
+<% } %>
 
 <table>
 <tr> 
 	<td> 이름 </td>
-	<td> <%= (userid==null) ? "" : userid  %>  </td>
+	<td> <%= (userid==null) ? "        " : userid  %>  </td>
 </tr>
 <tr>
 	<td> 성별</td>
-	<td> <%= (sex==null) ? "" : sex  %>  </td>
+	<td> <%= (sex==null) ? "        " : sex  %>  </td>
 	</tr>
 </table>
 
