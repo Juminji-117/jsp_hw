@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Insert title here</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
     div.container { width: 600px; margin: 50px auto; }
     thead th { background-color: #ddd; }

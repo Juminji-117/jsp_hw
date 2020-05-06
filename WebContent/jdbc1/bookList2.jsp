@@ -2,16 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.List, lecture1.jdbc1.*"  %>
 <%
-String srchAuthor = request.getParameter("srchAuthor");
-if (srchAuthor == null) srchAuthor = ""; 
-List<Book> list = BookDAO.findByName(srchAuthor);
+String srchText = request.getParameter("srchText");
+if (srchText == null) srchText = ""; 
+List<Book> list = BookDAO.findByName(srchText);
 %>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Insert title here</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style>
     div.container { width: 600px; margin: 50px auto; }
+    input {margin-bottom: 10px; }
     thead th { background-color: #ddd; }
     table{ border-collapse: collapse; width: 100%; }
     td, th { padding: 4px; border: 1px solid lightgray; }
@@ -25,28 +26,30 @@ List<Book> list = BookDAO.findByName(srchAuthor);
   
   <form>
   <label>저자</label>
-<input type="text" name="srchAuthor" value="<%= srchAuthor %>" placeholder="검색조건" />
+<input type="text" name="srchText" value="<%= srchText %>" placeholder="검색조건" />
   <button type="submit">조회</button>
 </form>
   
-  <table class="table table-bordered table-condensed">
+  <table>
       <thead>
           <tr>
-              <th>사용자아이디</th>
-              <th>이름</th>
-              <th>이메일</th>
-              <th>학과</th>
-              <th>사용자유형</th>
+              <th>id</th>
+              <th>제목</th>
+              <th>저자</th>
+              <th>카테고리</th>
+              <th>가격</th>
+              <th>출판사</th>      
           </tr>
       </thead>
       <tbody>
-          <% for (User user : list) { %> 
+          <% for (Book book : list) { %> 
               <tr>
-                  <td><%= user.getUserid() %></td> 
-                  <td><%= user.getName() %></td>
-                  <td><%= user.getEmail() %></td>
-                  <td><%= user.getDepartmentName() %></td>
-                  <td><%= user.getUserType() %></td>
+                  <td><%= book.getId() %></td> 
+                  <td><%= book.getTitle() %></td>
+                  <td><%= book.getAuthor() %></td>
+                  <td><%= book.getCategoryName() %></td>
+                  <td><%= book.getPrice() %></td>
+                  <td><%= book.getPublisher() %></td>
               </tr>
           <% } %>
       </tbody>
