@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.List, lecture1.jdbc1.*"  %>
+<%
+String srchAuthor = request.getParameter("srchAuthor");
+if (srchAuthor == null) srchAuthor = ""; 
+List<Book> list = BookDAO.findByName(srchAuthor);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Insert title here</title>
+<style>
+    div.container { width: 600px; margin: 50px auto; }
+    thead th { background-color: #ddd; }
+    table{ border-collapse: collapse; width: 100%; }
+    td, th { padding: 4px; border: 1px solid lightgray; }
+    td:nth-child(4) { text-align: center; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>책목록</h1>
+  
+  <form>
+  <label>저자</label>
+<input type="text" name="srchAuthor" value="<%= srchAuthor %>" placeholder="검색조건" />
+  <button type="submit">조회</button>
+</form>
+  
+  <table class="table table-bordered table-condensed">
+      <thead>
+          <tr>
+              <th>사용자아이디</th>
+              <th>이름</th>
+              <th>이메일</th>
+              <th>학과</th>
+              <th>사용자유형</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% for (User user : list) { %> 
+              <tr>
+                  <td><%= user.getUserid() %></td> 
+                  <td><%= user.getName() %></td>
+                  <td><%= user.getEmail() %></td>
+                  <td><%= user.getDepartmentName() %></td>
+                  <td><%= user.getUserType() %></td>
+              </tr>
+          <% } %>
+      </tbody>
+  </table>
+
+</div>
+</body>
+</html> 
