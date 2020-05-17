@@ -43,8 +43,7 @@ List<User> list = UserDAO2.findByName(srchText);
           <% for (User user : list) { %> 
               <tr>
                   <td><%= user.getUserid() %></td> 
-                  <td><%= user.getName() %></td>
-                  <td><%= user.getEmail() %></td>
+				  <td><a href="user1.jsp?id=<%= user.getId() %>"><%= user.getName() %></a></td>                  <td><%= user.getEmail() %></td>
                   <td><%= user.getDepartmentName() %></td>
                   <td><%= user.getUserType() %></td>
               </tr>
